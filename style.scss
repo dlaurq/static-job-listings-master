@@ -1,0 +1,74 @@
+@use 'colors' as *;
+
+@font-face {
+    font-family: 'LeagueSpartan';
+    src: url('LeagueSpartan-VariableFont_wght.ttf') format('truetype');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(./images/bg-header-mobile.svg) no-repeat $cyan-bg;
+    font-family: 'LeagueSpartan';
+    
+
+    .filter-bar{
+         background-color: white;
+         width: 90vw;
+         height: 10rem;
+         margin: 0 auto;
+         margin-top: 7rem;
+         padding: 1rem;
+         border-radius: .3rem;
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+
+        .filter-box{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            .filter{
+                background-color: rgba($cyan-700,  .2);
+                display: flex;
+                flex-direction: row;
+                margin-right: 1rem;
+    
+                .filter-name{
+                    color: $cyan-txt;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    padding: .5rem;
+                }
+                .filter-button{
+                    background-color: $cyan-txt;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: .5rem;
+                    
+                    img{
+                        $size: .8rem;
+                        width: $size;
+                        height: $size;
+                    }
+                }
+            }
+        }
+
+        .clear-filters{
+            color: $cyan-700;
+            font-weight: 700;
+            margin: auto;
+        }
+        
+    }
+}
+
