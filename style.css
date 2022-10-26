@@ -12,6 +12,9 @@ body {
   background: url(./images/bg-header-mobile.svg) no-repeat hsl(180deg, 52%, 96%);
   font-family: "LeagueSpartan";
 }
+body .hide {
+  display: none !important;
+}
 body .filter-bar {
   background-color: white;
   width: 90vw;
