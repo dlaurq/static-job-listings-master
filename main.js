@@ -128,7 +128,7 @@ function AddJobs(jl){
 
     //Butonul categ
     const categs = document.querySelectorAll(".categ");
-    console.log(categs)
+    //console.log(categs)
     categs.forEach(categ => {
         categ.addEventListener("click", ()=>{
 
@@ -156,15 +156,18 @@ function AddJobs(jl){
                 filterBtn.addEventListener("click", ()=>{
                     filter = filterBtn.parentElement;
                     filter.remove();
+                    console.log("aa")
+                    UpdateFilter()
                 });
 
                 //Adaug filtrul
                 filterBox.appendChild(filter);
+                UpdateFilter()
             }
         });
     });
 
-
+    
 }
 
 //Event buton clear
@@ -177,6 +180,7 @@ clearBtn.addEventListener("click", ()=>{
 filterBtns.forEach(e => {
     e.addEventListener("click", ()=>{
         filter = e.parentElement;
+
         filter.remove();
     });
 });
@@ -198,6 +202,47 @@ function FilterExist(f){
         return true;
     
     return false;
+}
+
+function UpdateFilter(){
+    const jobs = document.querySelectorAll(".job")
+    const filters = document.querySelectorAll(".filter-name")
+    console.log(jobs)
+    console.log(filters)
+
+    if(filters.length ==0)
+    {
+        jobs.forEach(job => {
+            job.classList.remove("hide")
+        });
+    }else{
+        
+        jobs.forEach(job => {
+            const categs = job.querySelectorAll(".categ")
+            let ok =1;
+            categs.forEach(categ => {
+                //console.log(categ.innerHTML)
+                //console.log(filter.innerHTML)
+                filters.forEach(filter => {
+                    if(categ.innerHTML == filter.innerHTML)
+                        ok=1;
+                });
+                
+            });
+
+            if(ok==0)
+                job.classList.add("hide")
+            else{
+                job.classList.remove("hide")
+            }
+        });
+    }
+
+    /*
+    [TO DO]
+    Daca apas pe categ sa merg doar prin elementele care n au hide
+    Daca apas pe filtru sa merg prin cele care au hide
+     */
 }
 
 
