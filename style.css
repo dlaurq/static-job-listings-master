@@ -63,10 +63,10 @@ body .filter-bar .clear-filters {
   font-weight: 700;
   margin: auto;
 }
-body .item-list {
+body .job-list {
   margin-top: 4rem;
 }
-body .item-list .item {
+body .job-list .job {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -75,28 +75,28 @@ body .item-list .item {
   width: 90vw;
   border-radius: 0.3rem;
 }
-body .item-list .item .item-profile {
+body .job-list .job .job-profile {
   border-bottom: 0.1rem hsl(180deg, 8%, 52%) solid;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
-body .item-list .item .item-profile img {
+body .job-list .job .job-profile img {
   width: 3rem;
   height: 3rem;
 }
-body .item-list .item .item-profile .item-desc .item-header {
+body .job-list .job .job-profile .job-desc .job-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 85%;
 }
-body .item-list .item .item-profile .item-desc .item-header .company-name {
+body .job-list .job .job-profile .job-desc .job-header .company-name {
   color: hsl(180deg, 29%, 50%);
   font-weight: 700;
   font-size: 1rem;
 }
-body .item-list .item .item-profile .item-desc .item-header .item-titles {
+body .job-list .job .job-profile .job-desc .job-header .job-promo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -104,7 +104,7 @@ body .item-list .item .item-profile .item-desc .item-header .item-titles {
   color: white;
   width: 55%;
 }
-body .item-list .item .item-profile .item-desc .item-header .item-titles .new, body .item-list .item .item-profile .item-desc .item-header .item-titles .featured {
+body .job-list .job .job-profile .job-desc .job-header .job-promo .new, body .job-list .job .job-profile .job-desc .job-header .job-promo .featured {
   background-color: hsl(180deg, 29%, 50%);
   padding: 0.3rem 0.5rem;
   padding-top: 0.5rem;
@@ -116,16 +116,16 @@ body .item-list .item .item-profile .item-desc .item-header .item-titles .new, b
   font-weight: 500;
   font-size: 0.8rem;
 }
-body .item-list .item .item-profile .item-desc .item-header .item-titles .featured {
+body .job-list .job .job-profile .job-desc .job-header .job-promo .featured {
   text-transform: uppercase;
   background-color: hsl(180deg, 14%, 20%);
 }
-body .item-list .item .item-profile .item-desc .job-title {
+body .job-list .job .job-profile .job-desc .job-title {
   color: hsl(180deg, 14%, 20%);
   font-weight: 700;
   margin: 1rem 0;
 }
-body .item-list .item .item-profile .item-desc .item-footer {
+body .job-list .job .job-profile .job-desc .job-footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -133,17 +133,18 @@ body .item-list .item .item-profile .item-desc .item-footer {
   color: hsl(180deg, 8%, 52%);
   width: 80%;
 }
-body .item-list .item .item-profile .item-desc .item-footer :first-child {
+body .job-list .job .job-profile .job-desc .job-footer :first-child {
   list-style-type: none;
 }
-body .item-list .item .item-categs {
+body .job-list .job .job-categs {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
+  list-style-type: none;
 }
-body .item-list .item .item-categs .categ {
+body .job-list .job .job-categs .categ {
   color: hsl(180deg, 29%, 50%);
   font-weight: 700;
   font-size: 1rem;

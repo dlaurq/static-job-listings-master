@@ -71,10 +71,10 @@ body{
     }
 
 
-    .item-list{
+    .job-list{
         margin-top: 4rem;
 
-        .item{
+        .job{
             display: flex;
             flex-direction: column; 
 
@@ -86,7 +86,7 @@ body{
 
             border-radius: .3rem;
 
-            .item-profile{
+            .job-profile{
                 border-bottom: .1rem $cyan-700 solid;
                 padding-bottom: 1rem;
                 margin-bottom: 1rem;
@@ -97,10 +97,10 @@ body{
                     height: $size;
                 }
 
-                .item-desc{
+                .job-desc{
                     
 
-                    .item-header{
+                    .job-header{
                         display: flex;
                         flex-direction: row;
                         justify-content: space-between;
@@ -114,7 +114,7 @@ body{
                             font-size: 1rem;
                         }
 
-                        .item-titles{
+                        .job-promo{
                             display: flex;
                             flex-direction: row;
                             justify-content: space-between;
@@ -148,7 +148,7 @@ body{
                         margin: 1rem 0;
                     }
 
-                    .item-footer{
+                    .job-footer{
                         display: flex;
                         flex-direction: row;
                         justify-content: space-between;
@@ -163,12 +163,13 @@ body{
                 }
             }
 
-            .item-categs{
+            .job-categs{
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: flex-start;
                 align-items: center;
+                list-style-type: none;
 
                 .categ{
                     color: $cyan-txt;
