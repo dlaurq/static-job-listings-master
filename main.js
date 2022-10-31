@@ -1,6 +1,6 @@
 const filterBar = document.querySelector(".filter-bar");
 const clearBtn = document.querySelector(".clear-filters");
-const filterList = document.querySelectorAll(".filter");
+
 const filterBtns = document.querySelectorAll(".filter-button");
 const filterBox = document.querySelector(".filter-box");
 
@@ -132,10 +132,10 @@ function AddJobs(jl){
     categs.forEach(categ => {
         categ.addEventListener("click", ()=>{
 
-            //Daca filtrul nu exista
+            //Adaugare filtru in lista de filtre daca filtrul nu exista
             if(!FilterExist(categ.innerHTML)){
 
-                //Daca bara cu filtre e ascunsa
+                //Daca bara cu filtre e ascunsa o arat
                 if(filterBar.classList.contains("hide"))
                     filterBar.classList.remove("hide")
                 
@@ -151,13 +151,15 @@ function AddJobs(jl){
                 temp.innerHTML = filterStr;
                 filter = temp.querySelector(".filter")
                 
-                //Adaug eventu pt butonul de X
+                //Adaug eventu pt butonul X al filtrului
                 const filterBtn = filter.querySelector(".filter-button")
                 filterBtn.addEventListener("click", ()=>{
                     filter = filterBtn.parentElement;
                     filter.remove();
                     console.log("aa")
                     UpdateFilter()
+                    if(filterBox.querySelectorAll(".filter").length==0)
+                        filterBar.classList.add("hide")
                 });
 
                 //Adaug filtrul
@@ -174,18 +176,10 @@ function AddJobs(jl){
 clearBtn.addEventListener("click", ()=>{
     filterBox.innerHTML= ""
     filterBar.classList.add("hide")
+    const jobs = document.querySelectorAll(".job")
+
+    jobs.forEach(job => {job.classList.remove("hide")});
 });
-
-//
-filterBtns.forEach(e => {
-    e.addEventListener("click", ()=>{
-        filter = e.parentElement;
-
-        filter.remove();
-    });
-});
-
-
 
 
 function FilterExist(f){
@@ -206,46 +200,22 @@ function FilterExist(f){
 
 function UpdateFilter(){
     const jobs = document.querySelectorAll(".job")
-    const filters = document.querySelectorAll(".filter-name")
-    console.log(jobs)
-    console.log(filters)
 
-    if(filters.length ==0)
-    {
-        jobs.forEach(job => {
+    jobs.forEach(job => {
+        const categs = job.querySelectorAll(".categ")
+        const filters = document.querySelectorAll(".filter");
+        const categsStr =[];
+        const filtersStr =[];
+
+        filters.forEach(filter => {filtersStr.push(filter.querySelector(".filter-name").innerHTML.toString())});
+
+        categs.forEach(categ => {categsStr.push(categ.innerHTML.toString())});
+
+        if(filtersStr.every(f => categsStr.includes(f)))
             job.classList.remove("hide")
-        });
-    }else{
-        
-        jobs.forEach(job => {
-            const categs = job.querySelectorAll(".categ")
-            let ok =1;
-            categs.forEach(categ => {
-                //console.log(categ.innerHTML)
-                //console.log(filter.innerHTML)
-                filters.forEach(filter => {
-                    if(categ.innerHTML == filter.innerHTML)
-                        ok=1;
-                });
-                
-            });
-
-            if(ok==0)
-                job.classList.add("hide")
-            else{
-                job.classList.remove("hide")
-            }
-        });
-    }
-
-    /*
-    [TO DO]
-    Daca apas pe categ sa merg doar prin elementele care n au hide
-    Daca apas pe filtru sa merg prin cele care au hide
-     */
+        else
+            job.classList.add("hide")
+    });
 }
-
-
-
 
 //Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process
