@@ -13,6 +13,12 @@
 
 body{
     background: url(./images/bg-header-mobile.svg) no-repeat $cyan-bg;
+    background-size: contain;
+
+    @media (min-width:768px) {
+        background: url(./images/bg-header-desktop.svg) no-repeat $cyan-bg;
+        background-size: contain;
+    }
     font-family: 'LeagueSpartan';
 
     .hide{
@@ -23,7 +29,7 @@ body{
     .filter-bar{
          background-color: white;
          width: 90vw;
-         height: 10rem;
+         
          margin: 0 auto;
          margin-top: 7rem;
          padding: 1rem;
@@ -36,13 +42,15 @@ body{
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
-            align-items: flex-start;
+            align-items:flex-start;
             flex-wrap: wrap;
             .filter{
                 background-color: rgba($cyan-700,  .1);
                 display: flex;
                 flex-direction: row;
-                margin-right: 1rem;
+                margin: .5rem 0;
+                margin-right: .5rem;
+                
                 .filter-name{
                     color: $cyan-txt;
                     font-weight: 700;
@@ -72,7 +80,7 @@ body{
 
 
     .job-list{
-        margin-top: 4rem;
+        margin-top: 5rem;
 
         .job{
             display: flex;
@@ -80,21 +88,45 @@ body{
 
             background-color: white;
             padding-left: 1.5rem;
-            margin: 2rem auto;
+            margin: 2.5rem auto;
 
             width: 90vw;
 
             border-radius: .3rem;
 
+            box-shadow: 0px 10px 20px -15px $cyan-800;
+
+            @media (min-width:768px){
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
             .job-profile{
                 border-bottom: .1rem $cyan-700 solid;
                 padding-bottom: 1rem;
                 margin-bottom: 1rem;
+                padding-top: 2.5rem;
+
+                @media (min-width:768px){
+                    display: flex;
+                    flex-direction: row;
+                    gap: 1.5rem;
+                    margin: 0;
+                    padding: 1.5rem 0;
+                    align-items: center;
+                    border: none;
+                }
 
                 img{
-                    $size: 3rem;
+                    $size: 4rem;
                     width: $size;
                     height: $size;
+                    position:absolute;
+                    transform: translate(0px, -60px);
+                    @media (min-width:768px){
+                        position: static;
+                        transform: none;
+                    }
                 }
 
                 .job-desc{
@@ -107,6 +139,13 @@ body{
                         align-items: center;
 
                         width: 85%;
+                        @media (min-width:425px) {
+                            justify-content: flex-start;
+                            gap: 1rem;
+                        }
+                        @media (min-width:768px){
+                            width: 150%;
+                        }
 
                         .company-name{
                             color: $cyan-txt;
@@ -117,10 +156,14 @@ body{
                         .job-promo{
                             display: flex;
                             flex-direction: row;
-                            justify-content: space-between;
+                            justify-content: flex-start;
+                            gap: 1rem;
                             align-items: center;
                             color: white;
                             width: 55%;
+                            @media (min-width:425px) {
+                                gap: .5rem;
+                            }
 
                             .new, .featured{
                                 background-color: $cyan-txt;
@@ -146,7 +189,12 @@ body{
                         color: $cyan-800;
                         font-weight: 700;
                         margin: 1rem 0;
+
+                        @media (min-width:768px){
+                            margin: .7rem 0;
+                        }
                     }
+
 
                     .job-footer{
                         display: flex;
@@ -159,6 +207,17 @@ body{
                         :first-child{
                             list-style-type: none;
                         }
+
+                        @media (min-width:425px) {
+                            justify-content: flex-start;
+                            gap: 1.5rem;
+                        }
+
+                        @media (min-width:768px){
+                            flex-wrap: wrap;
+                            width: 100%;
+                            gap: 1.2rem;
+                        }
                     }
                 }
             }
@@ -170,6 +229,9 @@ body{
                 justify-content: flex-start;
                 align-items: center;
                 list-style-type: none;
+                @media (min-width:768px) {
+                    margin: 0 2rem;
+                }
 
                 .categ{
                     color: $cyan-txt;
@@ -180,6 +242,10 @@ body{
                     margin-right: 1rem;
                     margin-bottom: 1rem;
                     font-weight: 700;
+                    @media (min-width:768px) {
+                        margin: 0;
+                        margin-left: 1rem;
+                    }
                 }
             }
         }

@@ -10,7 +10,14 @@
 
 body {
   background: url(./images/bg-header-mobile.svg) no-repeat hsl(180deg, 52%, 96%);
+  background-size: contain;
   font-family: "LeagueSpartan";
+}
+@media (min-width: 768px) {
+  body {
+    background: url(./images/bg-header-desktop.svg) no-repeat hsl(180deg, 52%, 96%);
+    background-size: contain;
+  }
 }
 body .hide {
   display: none !important;
@@ -18,7 +25,6 @@ body .hide {
 body .filter-bar {
   background-color: white;
   width: 90vw;
-  height: 10rem;
   margin: 0 auto;
   margin-top: 7rem;
   padding: 1rem;
@@ -39,7 +45,8 @@ body .filter-bar .filter-box .filter {
   background-color: rgba(123, 142, 142, 0.1);
   display: flex;
   flex-direction: row;
-  margin-right: 1rem;
+  margin: 0.5rem 0;
+  margin-right: 0.5rem;
 }
 body .filter-bar .filter-box .filter .filter-name {
   color: hsl(180deg, 29%, 50%);
@@ -64,25 +71,52 @@ body .filter-bar .clear-filters {
   margin: auto;
 }
 body .job-list {
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 body .job-list .job {
   display: flex;
   flex-direction: column;
   background-color: white;
   padding-left: 1.5rem;
-  margin: 2rem auto;
+  margin: 2.5rem auto;
   width: 90vw;
   border-radius: 0.3rem;
+  box-shadow: 0px 10px 20px -15px hsl(180deg, 14%, 20%);
+}
+@media (min-width: 768px) {
+  body .job-list .job {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 body .job-list .job .job-profile {
   border-bottom: 0.1rem hsl(180deg, 8%, 52%) solid;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
+  padding-top: 2.5rem;
+}
+@media (min-width: 768px) {
+  body .job-list .job .job-profile {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 1.5rem 0;
+    align-items: center;
+    border: none;
+  }
 }
 body .job-list .job .job-profile img {
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  transform: translate(0px, -60px);
+}
+@media (min-width: 768px) {
+  body .job-list .job .job-profile img {
+    position: static;
+    transform: none;
+  }
 }
 body .job-list .job .job-profile .job-desc .job-header {
   display: flex;
@@ -90,6 +124,17 @@ body .job-list .job .job-profile .job-desc .job-header {
   justify-content: space-between;
   align-items: center;
   width: 85%;
+}
+@media (min-width: 425px) {
+  body .job-list .job .job-profile .job-desc .job-header {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  body .job-list .job .job-profile .job-desc .job-header {
+    width: 150%;
+  }
 }
 body .job-list .job .job-profile .job-desc .job-header .company-name {
   color: hsl(180deg, 29%, 50%);
@@ -99,10 +144,16 @@ body .job-list .job .job-profile .job-desc .job-header .company-name {
 body .job-list .job .job-profile .job-desc .job-header .job-promo {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 1rem;
   align-items: center;
   color: white;
   width: 55%;
+}
+@media (min-width: 425px) {
+  body .job-list .job .job-profile .job-desc .job-header .job-promo {
+    gap: 0.5rem;
+  }
 }
 body .job-list .job .job-profile .job-desc .job-header .job-promo .new, body .job-list .job .job-profile .job-desc .job-header .job-promo .featured {
   background-color: hsl(180deg, 29%, 50%);
@@ -125,6 +176,11 @@ body .job-list .job .job-profile .job-desc .job-title {
   font-weight: 700;
   margin: 1rem 0;
 }
+@media (min-width: 768px) {
+  body .job-list .job .job-profile .job-desc .job-title {
+    margin: 0.7rem 0;
+  }
+}
 body .job-list .job .job-profile .job-desc .job-footer {
   display: flex;
   flex-direction: row;
@@ -136,6 +192,19 @@ body .job-list .job .job-profile .job-desc .job-footer {
 body .job-list .job .job-profile .job-desc .job-footer :first-child {
   list-style-type: none;
 }
+@media (min-width: 425px) {
+  body .job-list .job .job-profile .job-desc .job-footer {
+    justify-content: flex-start;
+    gap: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  body .job-list .job .job-profile .job-desc .job-footer {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1.2rem;
+  }
+}
 body .job-list .job .job-categs {
   display: flex;
   flex-direction: row;
@@ -143,6 +212,11 @@ body .job-list .job .job-categs {
   justify-content: flex-start;
   align-items: center;
   list-style-type: none;
+}
+@media (min-width: 768px) {
+  body .job-list .job .job-categs {
+    margin: 0 2rem;
+  }
 }
 body .job-list .job .job-categs .categ {
   color: hsl(180deg, 29%, 50%);
@@ -153,6 +227,12 @@ body .job-list .job .job-categs .categ {
   margin-right: 1rem;
   margin-bottom: 1rem;
   font-weight: 700;
+}
+@media (min-width: 768px) {
+  body .job-list .job .job-categs .categ {
+    margin: 0;
+    margin-left: 1rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
